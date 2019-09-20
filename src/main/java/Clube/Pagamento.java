@@ -2,16 +2,18 @@
 package Clube;
 
 public class Pagamento {
+    
+    //ATRIBUTOS
     private int numeroBoleto;
     private double valor;
     private double multa;
     private double juros;
     private String dataVencimento;
     private String dataPagamento;
+    private Socio socio; //Asociação com a classe Socio
     
-    //Asociação com a classe Socio
-    private Socio socio;
     
+    //CONSTRUTORES 
     public Pagamento(){
         numeroBoleto = 0;
         valor = 0;
@@ -19,21 +21,11 @@ public class Pagamento {
         juros = 0;
         dataVencimento = "";
         dataPagamento = "";
+        socio = null;
     }
     
     
-    //Como é uma associação de 1 para n, o pagamento tem relação 
-    //1 com o socio logo utiliza-se só o método get set
-    public Socio getSocio (){
-        return socio;
-    }
-    public void setSocio (Socio novoSocio){
-        socio = novoSocio;
-    }
-    
-    
-    
-    
+    //METODOS
     public int getNumeroBoleto(){
         return numeroBoleto;
     }
@@ -76,5 +68,15 @@ public class Pagamento {
         dataPagamento = novoDataPagamento;
     }
     
+    //Como é uma associação de 1 para n, o pagamento tem relação 
+    //1 com o socio logo utiliza-se só o método get set
+    public Socio getSocio (){
+        return socio;
+    }
+    public void setSocio (Socio novoSocio){
+        socio = novoSocio;
+    }
+    
+
     
 }

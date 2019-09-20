@@ -6,12 +6,16 @@ public class VendaIngresso {
     private String data;
     private String hora;
     private double valor;
+    private Show show;
+    
+    
     
     public VendaIngresso(){
         numeroIngresso = 0;
         data = "";
         hora = "";
         valor = 0;
+        show = null;
     }
     
     public int getNumeroIngresso(){
@@ -40,5 +44,13 @@ public class VendaIngresso {
     }
     public void setValor(double novoValor){
         valor = novoValor;
+    }
+    
+    //Associação simplies com a classe Show.
+    public Show getShow(){
+        return show;
+    }
+    public void setShow(Show novoShow){
+        show = novoShow;
     }
 }

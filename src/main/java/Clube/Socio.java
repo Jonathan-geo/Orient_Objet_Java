@@ -3,6 +3,8 @@ package Clube;
 
 
 public class Socio extends PessoaRegistrada{
+    
+    //ATRIBUTOS
     private String cpf;
     private String endereco;
     private String telefone;
@@ -12,17 +14,18 @@ public class Socio extends PessoaRegistrada{
     private String dataInicioTitulo;
     private String dataTerminoTitulo;
     
-    //Iniciando atributos (associação com Dependente)
+        //Iniciando atributos (associação com Dependente)
     private Dependente[] vetDependentes;
     private int contadorDependente;
     
-    //Iniciando atributos (associação com Pagamentos)
-    /*Neste caso eu iniciei a classe Pagamento como um vetor e armazenei
-        *na variavel vetPagametos*/
-    
+        //Iniciando atributos (associação com Pagamentos)
+        /*Neste caso eu iniciei a classe Pagamento como um vetor e armazenei
+            na variavel vetPagametos*/
     private Pagamento[] vetPagamentos;
+    private int contadorPagamento;
     
     
+    //CONSTRUTORES
     public Socio(){
         super();
         cpf = "";
@@ -34,41 +37,16 @@ public class Socio extends PessoaRegistrada{
         dataInicioTitulo = "";
         dataTerminoTitulo = "";
         
-        //Contrutor do atributo Dependente
+            //Contrutor do atributo vetDependente (Vetor)
         vetDependentes = new Dependente[100];  
         contadorDependente = 0;
+        
+            //Construtor do atributo vetPagamento (Vetor)
+        vetPagamentos = new Pagamento[100];
+        contadorPagamento = 0;
     }
-    
-    
-    
-    //Métodos que faz associação com a classe Dependentes.
-    //Cada socio tem vários atributos. Por isso o vetor.
-    //Vetor necessitam de métodos que excluem, incluem, etc. 
-    public void adicionarDependente(Dependente novoDependente){
-        vetDependentes[contadorDependente] = novoDependente;
-        contadorDependente++;
-    }
-    
-    public void excluirDependente(int posicao){
-        vetDependentes[posicao] = vetDependentes[contadorDependente-1];
-        vetDependentes[contadorDependente - 1] = null;
-        contadorDependente--;
-    }
-    
-    public Dependente getDependente(int posicao){
-        return vetDependentes[posicao];
-    }
-    
-    public int qtdeDependentes(){
-        return contadorDependente;
-    }
-    
-    
-    
-    
-    
-    
-    
+  
+    //METODOS
     public String getCpf(){
         return cpf;
     }
@@ -125,36 +103,45 @@ public class Socio extends PessoaRegistrada{
         dataTerminoTitulo = novoDataTerminoTitulo;
     }
     
+        
+    //Métodos que faz associação com a classe Pagamentos.
+    //Cada socio tem vários pagamentos. Por isso o vetor.
+    //Vetores necessitam de métodos que excluem, incluem, etc. 
+    public void adicionarPagamento(Pagamento novoPagamento){
+        vetPagamentos[contadorPagamento] = novoPagamento;
+        contadorDependente++;
+    } 
+    public void excluirPagamento(int posicao){
+        vetPagamentos[posicao] = vetPagamentos[contadorPagamento-1];
+        vetPagamentos[contadorPagamento-1]=null;
+        contadorPagamento--;
+    }
+    public Pagamento getPagamento(int posicao){
+        return vetPagamentos[posicao];
+    }
+    public int qtdePagamentos(){
+        return contadorPagamento;
+    }
     
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+    //Métodos que faz associação com a classe Dependentes.
+    //Cada socio tem vários dependentes. Por isso o vetor.
+    //Vetor necessitam de métodos que excluem, incluem, etc. 
+    public void adicionarDependente(Dependente novoDependente){
+        vetDependentes[contadorDependente] = novoDependente;
+        contadorDependente++;
+    }
+    public void excluirDependente(int posicao){
+        vetDependentes[posicao] = vetDependentes[contadorDependente-1];
+        vetDependentes[contadorDependente-1] = null;
+        contadorDependente--;
+    } 
+    public Dependente getDependente(int posicao){
+        return vetDependentes[posicao];
+    } 
+    public int qtdeDependentes(){
+        return contadorDependente;
+    } 
 }
 
 
